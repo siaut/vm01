@@ -1,0 +1,11 @@
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: VolumeImportSource
+metadata:
+  name: rhel9-source
+  labels:
+    drapp: dr-vm
+spec:
+  source:
+    registry:
+      url: "docker://registry.redhat.io/rhel9/rhel-guest-image:9.4-1175"
+      pullMethod: node
