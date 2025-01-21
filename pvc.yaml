@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dr-vm-disk
+  namespace: vm01
+  labels:
+    drapp: dr-vm
+spec:
+  dataSourceRef:
+    apiGroup: cdi.kubevirt.io
+    kind: VolumeImportSource
+    name: rhel9-source
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: ocs-storagecluster-ceph-rbd-virtualization
+  volumeMode: Block
